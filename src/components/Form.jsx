@@ -56,7 +56,7 @@ function Form({ inputRef }) {
         <div className="relative">
           <button
             onClick={toggleMenu}
-            className=" h-full w-12 hover:bg-gray-100 flex justify-center items-center"
+            className=" h-full w-12 hover:bg-gray-100 hover:rounded flex justify-center items-center"
             type="button"
           >
             <EllipsisVertical />
