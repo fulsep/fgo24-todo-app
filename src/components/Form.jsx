@@ -48,7 +48,7 @@ function Form({ref}) {
           name="task" 
           placeholder='Type your activity' />
         <div className='relative'>
-          <button onClick={toggleMenu} className=' h-full w-12 hover:bg-gray-100 flex justify-center items-center' type="button">
+          <button onClick={toggleMenu} className=' h-full w-12 hover:bg-gray-100 hover:rounded flex justify-center items-center' type="button">
             <EllipsisVertical />
           </button>
           {showMenu && <ul onMouseLeave={toggleMenu} className='absolute py-2 top-14 z-20 right-0 w-50 bg-white overflow-hidden flex flex-col gap-1 rounded shadow *:*:p-2 *:*:flex *:*:gap-3 *:*:hover:bg-gray-200'>

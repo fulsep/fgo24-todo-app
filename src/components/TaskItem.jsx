@@ -62,14 +62,16 @@ function TaskItem({taskName, checked, id}) {
         <span className='flex-1 text-xl peer-has-checked:line-through'>
           {edit ? <EditInput onEnterPress={toggleEdit} id={id} taskName={taskName} /> : `${taskName}`}
         </span>
-        <span className='hidden gap-3 group-hover:flex'>
-          <button onClick={toggleEdit} type='button' className='cursor-pointer size-10 hover:bg-blue-300 flex items-center justify-center rounded'>
-            <Pencil />
-          </button>
-          <button onClick={()=>deleteTask(id)} type='button' className='cursor-pointer size-10 hover:bg-red-300 flex items-center justify-center rounded'>
-            <Trash />
-          </button>
-        </span>
+        <div className='w-[100px] h-[40px] flex flex-row justify-center'>
+          <div className='hidden gap-3 group-hover:flex'>
+            <button onClick={toggleEdit} type='button' className='cursor-pointer size-10 hover:bg-blue-300 flex items-center justify-center rounded'>
+              <Pencil />
+            </button>
+            <button onClick={()=>deleteTask(id)} type='button' className='cursor-pointer size-10 hover:bg-red-300 flex items-center justify-center rounded'>
+              <Trash />
+            </button>
+          </div>
+        </div>
       </span>
     </label>
   )
