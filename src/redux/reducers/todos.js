@@ -9,7 +9,9 @@ const todos = createSlice({
   initialState,
   reducers: {
     addTask: function(state, action){
-      const id = state.list.length +1
+      let id
+      if (state.list.length===0) {id = 1}
+      else {id = state.list[(state.list.length-1)].id+1 }
       state.list.push({
         id,
         taskName: action.payload,
@@ -20,7 +22,9 @@ const todos = createSlice({
     editTask: function(state, action){
       const {id, taskName} = action.payload
       const found = state.list.findIndex(todo => todo.id === id)
-      state.list[found].taskName = taskName
+      if(found !== -1) { 
+        state.list[found].taskName = taskName
+      }
       return state
     },
     toggleComplete: function(state, action){
@@ -33,7 +37,7 @@ const todos = createSlice({
       if(Array.isArray(id)){
         let listIndex = []
         id.forEach(id => {
-          listIndex.push(state.list.findIndex(o=>o.id===id))
+          listIndex.push(state.list.findIndex( o => o.id===id))
         })
         listIndex.forEach(found=>{
           state.list[found].checked = checked
@@ -47,7 +51,8 @@ const todos = createSlice({
         list = state.list.filter(o => o.id !== action.payload)
       }
       if(Array.isArray(action.payload)){
-        list = state.list.filter(o=> action.payload.includes(o.id))
+        console.log(action.payload)
+        list = state.list.filter(o => action.payload.includes(o.id))
       }
       return {
         list

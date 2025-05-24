@@ -8,17 +8,20 @@ function EditInput({id, taskName, onEnterPress}){
   const [text,setText] = React.useState(taskName)
   React.useEffect(()=>{
     return ()=>{
-      dispatch(editTask({id, taskName: text}))
+      if(text !== '') {dispatch(editTask({id, taskName: text}))}
     }
   })
+
   function onEnter(e){
     if(e.keyCode === 13){
       onEnterPress()
     }
   }
+
   return(
     <input
       autoFocus
+      id={`edit-${id}`}
       onInput={e=>setText(e.target.value)}
       onKeyDown={onEnter}
       className='border-b outline-none'
@@ -32,6 +35,7 @@ function TaskItem({taskName, checked, id}) {
   const dispatch = useDispatch()
 
   function deleteTask(id){
+    setEdit(false)
     dispatch(removeTask(id))
   }
   function updateCheckedStatus(id, newValue){
@@ -48,6 +52,7 @@ function TaskItem({taskName, checked, id}) {
         <span className='hidden peer'>
           <input
             onChange={(e)=>updateCheckedStatus(id, e.target.checked)}
+            id={id}
             checked={checked}
             type="checkbox" />
         </span>
@@ -59,17 +64,19 @@ function TaskItem({taskName, checked, id}) {
             <SquareCheck size={30} />
           </span>
         </span>
-        <span className='flex-1 text-xl peer-has-checked:line-through'>
+        <span className='flex-1 max-w-[286px] truncate text-xl peer-has-checked:line-through'>
           {edit ? <EditInput onEnterPress={toggleEdit} id={id} taskName={taskName} /> : `${taskName}`}
         </span>
-        <span className='hidden gap-3 group-hover:flex'>
-          <button onClick={toggleEdit} type='button' className='cursor-pointer size-10 hover:bg-blue-300 flex items-center justify-center rounded'>
-            <Pencil />
-          </button>
-          <button onClick={()=>deleteTask(id)} type='button' className='cursor-pointer size-10 hover:bg-red-300 flex items-center justify-center rounded'>
-            <Trash />
-          </button>
-        </span>
+        <div className='w-[100px] h-[40px] flex flex-row justify-center'>
+          <div className='hidden gap-3 group-hover:flex'>
+            <button onClick={toggleEdit} type='button' className='cursor-pointer size-10 hover:bg-blue-300 flex items-center justify-center rounded'>
+              <Pencil />
+            </button>
+            <button onClick={()=>deleteTask(id)} type='button' className='cursor-pointer size-10 hover:bg-red-300 flex items-center justify-center rounded'>
+              <Trash />
+            </button>
+          </div>
+        </div>
       </span>
     </label>
   )
