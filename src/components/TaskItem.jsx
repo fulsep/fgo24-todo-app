@@ -33,6 +33,7 @@ function TaskItem({taskName, checked, id}) {
   const dispatch = useDispatch()
 
   function deleteTask(id){
+    setEdit(false)
     dispatch(removeTask(id))
   }
   function updateCheckedStatus(id, newValue){
