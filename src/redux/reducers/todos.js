@@ -22,7 +22,9 @@ const todos = createSlice({
     editTask: function(state, action){
       const {id, taskName} = action.payload
       const found = state.list.findIndex(todo => todo.id === id)
-      state.list[found].taskName = taskName
+      if(found !== -1) { 
+        state.list[found].taskName = taskName
+      }
       return state
     },
     toggleComplete: function(state, action){
