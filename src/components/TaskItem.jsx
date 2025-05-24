@@ -11,8 +11,10 @@ function EditInput({id, taskName, onEnterPress}){
       dispatch(editTask({id, taskName: text}))
     }
   })
+  
   function onEnter(e){
     if(e.keyCode === 13){
+      console.log(e.keyCode);
       onEnterPress()
     }
   }
@@ -59,7 +61,7 @@ function TaskItem({taskName, checked, id}) {
             <SquareCheck size={30} />
           </span>
         </span>
-        <span className='flex-1 text-xl peer-has-checked:line-through'>
+        <span className='flex-1 text-xl peer-has-checked:line-through break-all'>
           {edit ? <EditInput onEnterPress={toggleEdit} id={id} taskName={taskName} /> : `${taskName}`}
         </span>
         <span className='hidden gap-3 group-hover:flex'>

@@ -9,7 +9,11 @@ const todos = createSlice({
   initialState,
   reducers: {
     addTask: function(state, action){
-      const id = state.list.length +1
+      const id = state.list.length + 1
+      console.log('state list : ' + state.list);
+      console.log(`panjang state list : ${state.list.length + 1}`);
+      console.log('tipe state list: ' + typeof state.list);
+      
       state.list.push({
         id,
         taskName: action.payload,
