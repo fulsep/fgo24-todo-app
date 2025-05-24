@@ -17,7 +17,7 @@ function EditInput({id, taskName, onEnterPress}){
       onEnterPress()
     }
   }
-  
+
   return(
     <input
       autoFocus
@@ -64,7 +64,7 @@ function TaskItem({taskName, checked, id}) {
             <SquareCheck size={30} />
           </span>
         </span>
-        <span className='flex-1 text-xl peer-has-checked:line-through'>
+        <span className='flex-1 max-w-[286px] truncate text-xl peer-has-checked:line-through'>
           {edit ? <EditInput onEnterPress={toggleEdit} id={id} taskName={taskName} /> : `${taskName}`}
         </span>
         <div className='w-[100px] h-[40px] flex flex-row justify-center'>
