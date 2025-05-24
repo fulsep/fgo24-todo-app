@@ -8,14 +8,16 @@ function EditInput({id, taskName, onEnterPress}){
   const [text,setText] = React.useState(taskName)
   React.useEffect(()=>{
     return ()=>{
-      dispatch(editTask({id, taskName: text}))
+      if(text !== '') {dispatch(editTask({id, taskName: text}))}
     }
   })
+
   function onEnter(e){
     if(e.keyCode === 13){
       onEnterPress()
     }
   }
+  
   return(
     <input
       autoFocus

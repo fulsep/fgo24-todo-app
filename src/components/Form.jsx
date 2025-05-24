@@ -15,7 +15,7 @@ function Form({ref}) {
   function submitTask(e){
     e.preventDefault()
     const task = e.target.task.value
-    dispatch(addTaskAction(task))
+    if(task !== '') { dispatch(addTaskAction(task)) }
     e.target.reset()
   }
 
@@ -32,7 +32,6 @@ function Form({ref}) {
   function deleteComplete(){
     toggleMenu()
     dispatch(removeTask(tasks.filter(o=>o.checked!==true).map(o=>o.id)))
-    // setTasks(tasks.filter(o=>o.checked!==true))
   }
 
   return (
