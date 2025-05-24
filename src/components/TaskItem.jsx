@@ -19,6 +19,7 @@ function EditInput({id, taskName, onEnterPress}){
   return(
     <input
       autoFocus
+      id={`edit-${id}`}
       onInput={e=>setText(e.target.value)}
       onKeyDown={onEnter}
       className='border-b outline-none'
@@ -48,6 +49,7 @@ function TaskItem({taskName, checked, id}) {
         <span className='hidden peer'>
           <input
             onChange={(e)=>updateCheckedStatus(id, e.target.checked)}
+            id={id}
             checked={checked}
             type="checkbox" />
         </span>
