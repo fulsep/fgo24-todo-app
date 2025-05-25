@@ -8,7 +8,7 @@ function EditInput({ id, taskName, onEnterPress }) {
   const [text, setText] = React.useState(taskName);
   React.useEffect(() => {
     return () => {
-      dispatch(editTask({ id, taskName: text }));
+      dispatch(editTask({ id, taskName: text.trim() }));
     };
   });
   function onEnter(e) {

@@ -19,7 +19,7 @@ function Form({ ref }) {
   function submitTask(e) {
     e.preventDefault();
     const task = e.target.task.value;
-    dispatch(addTaskAction(task));
+    dispatch(addTaskAction(task.trim()));
     e.target.reset();
   }
 
