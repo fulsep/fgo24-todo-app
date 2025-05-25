@@ -29,7 +29,8 @@ function TaskItem({ taskName, checked, id }) {
   const [edit, setEdit] = React.useState(false);
   const dispatch = useDispatch();
 
-  function deleteTask(id) {
+  function deleteTask() {
+    if (edit) setEdit(false);
     dispatch(removeTask(id));
   }
   function updateCheckedStatus(id, newValue) {
