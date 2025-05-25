@@ -7,6 +7,7 @@ function Form({ref}) {
   const dispatch = useDispatch()
   const tasks = useSelector(state => state.todos.list)
   const [showMenu, setShowMenu] = React.useState(false)
+  const [isEmptyInput, setIsEmptyInput] = React.useState(false)
 
   function toggleMenu(){
     setShowMenu(!showMenu)
@@ -15,8 +16,13 @@ function Form({ref}) {
   function submitTask(e){
     e.preventDefault()
     const task = e.target.task.value
-    dispatch(addTaskAction(task))
-    e.target.reset()
+    if (task.length > 0) {
+      setIsEmptyInput(false)
+      dispatch(addTaskAction(task))
+      e.target.reset()
+    } else {
+      setIsEmptyInput(true)
+    }
   }
 
   function toggleCheckbox(){
@@ -68,6 +74,7 @@ function Form({ref}) {
         </div>
       </div>
       <button className='hidden' type="submit">Save</button>
+      <small className={`${isEmptyInput ? 'visible' : 'invisible'} text-red-500 font-semibold`}>Input can't be empty</small>
     </form>
   )
 }
