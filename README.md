@@ -1,12 +1,64 @@
-# React + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple todo app built with ReactJS and Redux for the global state management.
 
-Currently, two official plugins are available:
+## Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Preview](/docs/preview.png)
 
-## Expanding the ESLint configuration
+## Dependencies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To develop this app, we are using some dependencies:
+- ReactJS
+- TailwindCSS
+- Redux Toolkit
+- Redux Persist
+- Lucide Icon
+
+And frontend tooling, the one and only:
+- Vite
+
+## How to Run
+
+1. Clone this repository
+```bash
+git clone https://github.com/fulsep/fgo24-todo-app.git
+```
+2. Get into the path
+```bash
+cd fgo24-todo-app
+```
+3. Install the dependencies
+```bash
+npm install
+```
+4. Run the project
+```bash
+npm run dev
+```
+
+## Running the app locally
+
+This project is built with Vite, which provides fast development with hot-reloading.
+
+1. Access the app:
+   - After starting the dev server, open:
+🔗 http://localhost:5173
+
+2. Hot Reloading:
+    - Any changes you make will automatically reflect in the browser.
+
+## Contributing rules
+
+- Create a Pull Request (PR) to the branch assigned to you (named after you).
+- Follow these guidelines:
+  - Semantic Commit Messages – Use clear, structured commit messages (e.g., feat: add user login, fix: resolve auth validation bug).
+  - Semantic Branching (for local work) – Prefix your local branches with the commit type (e.g., feat/user-login, fix/auth-validation).
+
+## ⚠️Cautions Bug🐞
+
+There is some bug in this app that I'll leave for you to solve.
+
+## License
+
+MIT

@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux'
 
 function TaskList({inputRef}) {
   const tasks = useSelector(state => state.todos.list)
+  // console.log(tasks);
+  
   return (
     <>
       {tasks.map((task,idx)=>{

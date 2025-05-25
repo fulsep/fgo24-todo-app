@@ -15,6 +15,8 @@ function Form({ref}) {
   function submitTask(e){
     e.preventDefault()
     const task = e.target.task.value
+    // console.log('submitTask : ' + task.split(' ').join("").split(""));
+    
     dispatch(addTaskAction(task))
     e.target.reset()
   }
