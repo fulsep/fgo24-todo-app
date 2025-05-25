@@ -41,8 +41,8 @@ function TaskItem({ taskName, checked, id }) {
   }
 
   return (
-    <div className="select-none">
-      <label className="flex items-center min-h-20 gap-5 p-5 px-10 hover:bg-gray-100 group">
+    <label className="flex items-center min-h-20 gap-5 p-5 px-10 hover:bg-gray-100 group justify-between">
+      <div className="flex items-center gap-5 overflow-hidden flex-1">
         <span className="hidden peer">
           <input
             onChange={(e) => updateCheckedStatus(id, e.target.checked)}
@@ -59,7 +59,7 @@ function TaskItem({ taskName, checked, id }) {
             <SquareCheck size={30} />
           </span>
         </span>
-        <span className="flex-1 text-xl peer-has-checked:line-through">
+        <span className="flex-1 text-xl peer-has-checked:line-through truncate min-w-0">
           {edit ? (
             <EditInput onEnterPress={toggleEdit} id={id} taskName={taskName} />
           ) : (
@@ -82,8 +82,8 @@ function TaskItem({ taskName, checked, id }) {
             <Trash />
           </button>
         </div>
-      </label>
-    </div>
+      </div>
+    </label>
   );
 }
 
