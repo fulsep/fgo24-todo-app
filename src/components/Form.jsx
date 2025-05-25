@@ -36,40 +36,70 @@ function Form({ref}) {
   }
 
   return (
-    <form onSubmit={submitTask} className='flex flex-col gap-5 mx-5'>
+    <form onSubmit={submitTask} className="flex flex-col gap-5 mx-5">
       <div>
-        <div className='text-3xl font-bold uppercase text-white'>Todo</div>
+        <div className="text-3xl font-bold uppercase text-white">Todo</div>
       </div>
-      <div className='bg-white h-12 shadow flex rounded'>
-        <input 
+      <div className="bg-white h-12 shadow flex rounded">
+        <input
           ref={ref}
-          className='flex-1 px-5 outline-none' 
+          className="flex-1 px-5 outline-none"
           type="text"
-          name="task" 
-          placeholder='Type your activity' />
-        <div className='relative'>
-          <button onClick={toggleMenu} className=' h-full w-12 hover:bg-gray-100 flex justify-center items-center' type="button">
+          name="task"
+          placeholder="Type your activity"
+        />
+        <div className="relative">
+          <button
+            onClick={toggleMenu}
+            className=" h-full w-12 hover:bg-gray-100 flex justify-center items-center rounded"
+            type="button"
+          >
             <EllipsisVertical />
           </button>
-          {showMenu && <ul onMouseLeave={toggleMenu} className='absolute py-2 top-14 z-20 right-0 w-50 bg-white overflow-hidden flex flex-col gap-1 rounded shadow *:*:p-2 *:*:flex *:*:gap-3 *:*:hover:bg-gray-200'>
-            <li>
-              <button disabled={tasks.length < 1} onClick={toggleCheckbox} className='w-full text-left disabled:text-gray-300 disabled:cursor-not-allowed' type='button'>
-                <CheckSquare2 />
-                <span>Toggle checkbox</span>
-              </button>
-            </li>
-            <li>
-              <button disabled={tasks.length < 1 || tasks.filter(o=>o.checked).length < 1} onClick={deleteComplete} className='w-full text-left disabled:text-gray-300 disabled:cursor-not-allowed' type='button'>
-                <Trash />
-                <span>{(tasks.length !== 0) && (tasks.length === tasks.filter(o=>o.checked).length) ? "Clear": "Delete Complete"}</span>
-              </button>
-            </li>
-          </ul>}
+          {showMenu && (
+            <ul
+              onMouseLeave={toggleMenu}
+              className="absolute py-2 top-14 z-20 right-0 w-50 bg-white overflow-hidden flex flex-col gap-1 rounded shadow *:*:p-2 *:*:flex *:*:gap-3 *:*:hover:bg-gray-200"
+            >
+              <li>
+                <button
+                  disabled={tasks.length < 1}
+                  onClick={toggleCheckbox}
+                  className="w-full text-left disabled:text-gray-300 disabled:cursor-not-allowed"
+                  type="button"
+                >
+                  <CheckSquare2 />
+                  <span>Toggle checkbox</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  disabled={
+                    tasks.length < 1 ||
+                    tasks.filter((o) => o.checked).length < 1
+                  }
+                  onClick={deleteComplete}
+                  className="w-full text-left disabled:text-gray-300 disabled:cursor-not-allowed"
+                  type="button"
+                >
+                  <Trash />
+                  <span>
+                    {tasks.length !== 0 &&
+                    tasks.length === tasks.filter((o) => o.checked).length
+                      ? "Clear"
+                      : "Delete Complete"}
+                  </span>
+                </button>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
-      <button className='hidden' type="submit">Save</button>
+      <button className="hidden" type="submit">
+        Save
+      </button>
     </form>
-  )
+  );
 }
 
 export default Form
