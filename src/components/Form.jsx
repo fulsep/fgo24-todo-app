@@ -19,6 +19,8 @@ function Form({ ref }) {
   function submitTask(e) {
     e.preventDefault();
     const task = e.target.task.value;
+    const valTask = task.trim();
+    if (!valTask) return; // Cegah submit kosong
     dispatch(addTaskAction(task.trim()));
     e.target.reset();
   }
