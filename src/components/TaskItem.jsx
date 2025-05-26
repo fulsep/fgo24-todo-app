@@ -60,7 +60,7 @@ function TaskItem({taskName, checked, id}) {
             <SquareCheck size={30} />
           </span>
         </span>
-        <span className='flex-1 text-xl peer-has-checked:line-through'>
+        <span className='flex-1 text-xl peer-has-checked:line-through truncate'>
           {edit ? <EditInput onEnterPress={toggleEdit} id={id} taskName={taskName} /> : `${taskName}`}
         </span>
         <span className='hidden gap-3 group-hover:flex'>
