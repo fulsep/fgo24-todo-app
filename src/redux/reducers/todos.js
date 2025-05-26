@@ -9,7 +9,12 @@ const todos = createSlice({
   initialState,
   reducers: {
     addTask: function(state, action){
-      const id = state.list.length +1
+      let id
+      if (state.list.length === 0) {
+        id = state.list.length +1
+      } else {
+        id = state.list.slice(-1)[0].id + 1
+      }
       state.list.push({
         id,
         taskName: action.payload,

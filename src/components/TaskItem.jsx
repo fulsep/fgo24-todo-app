@@ -49,6 +49,7 @@ function TaskItem({taskName, checked, id}) {
           <input
             onChange={(e)=>updateCheckedStatus(id, e.target.checked)}
             checked={checked}
+            disabled={edit}
             type="checkbox" />
         </span>
         <span className='peer-has-checked:hidden'>
@@ -59,14 +60,14 @@ function TaskItem({taskName, checked, id}) {
             <SquareCheck size={30} />
           </span>
         </span>
-        <span className='flex-1 text-xl peer-has-checked:line-through'>
+        <span className='flex-1 text-xl peer-has-checked:line-through truncate'>
           {edit ? <EditInput onEnterPress={toggleEdit} id={id} taskName={taskName} /> : `${taskName}`}
         </span>
         <span className='hidden gap-3 group-hover:flex'>
           <button onClick={toggleEdit} type='button' className='cursor-pointer size-10 hover:bg-blue-300 flex items-center justify-center rounded'>
             <Pencil />
           </button>
-          <button onClick={()=>deleteTask(id)} type='button' className='cursor-pointer size-10 hover:bg-red-300 flex items-center justify-center rounded'>
+          <button onClick={()=>deleteTask(id)} type='button' disabled={edit} className='cursor-pointer size-10 hover:bg-red-300 flex items-center justify-center rounded'>
             <Trash />
           </button>
         </span>
