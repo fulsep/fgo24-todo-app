@@ -40,7 +40,7 @@ function Form({ref}) {
       <div>
         <div className='text-3xl font-bold uppercase text-white'>Todo</div>
       </div>
-      <div className='bg-white h-12 shadow flex rounded'>
+      <div className='bg-white h-12 shadow flex rounded overflow-hidden'>
         <input 
           ref={ref}
           className='flex-1 px-5 outline-none' 
