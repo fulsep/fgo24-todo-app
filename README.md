@@ -20,6 +20,8 @@ And frontend tooling, the one and only:
 
 ## How to Run
 
+### Manual
+
 1. Clone this repository
 ```bash
 git clone https://github.com/fulsep/fgo24-todo-app.git
@@ -36,6 +38,26 @@ npm install
 ```bash
 npm run dev
 ```
+
+### With Docker
+
+1. Clone this repository
+```bash
+git clone https://github.com/fulsep/fgo24-todo-app.git
+```
+2. Get into the path
+```bash
+cd fgo24-todo-app
+```
+3. Build image
+```bash
+docker build . -t todoapp:latest
+```
+4. Run image with docker
+```bash
+docker run -p 8080:80 -d todoapp:latest
+```
+5. Visit your app in http://localhost:8080
 
 ## Running the app locally
 
